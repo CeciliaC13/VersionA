@@ -199,4 +199,138 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ===================================================================
+  // --- AI ASSISTANT SIMULATION INTERACTIVE PREVIEW LOOP ---
+  // ===================================================================
+  const runLiveSimulation = () => {
+    const laser = document.querySelector('.scanner-laser');
+    const rawFields = {
+      vendor: document.getElementById('raw-vendor'),
+      invNo: document.getElementById('raw-inv-no'),
+      date: document.getElementById('raw-date'),
+      item1: document.getElementById('raw-item-1'),
+      item2: document.getElementById('raw-item-2'),
+      total: document.getElementById('raw-total')
+    };
+
+    const statusText = document.getElementById('engine-status-text');
+    const progressBar = document.getElementById('engine-progress');
+
+    const acFields = {
+      vendor: document.getElementById('ac-vendor'),
+      invNo: document.getElementById('ac-inv-no'),
+      date: document.getElementById('ac-date'),
+      total: document.getElementById('ac-total')
+    };
+
+    const acCard = document.querySelector('.autocount-mock');
+    const syncStatus = document.getElementById('ac-sync-status');
+    const syncStatusDot = syncStatus.querySelector('.sync-dot');
+    const syncStatusText = syncStatus.querySelector('span');
+
+    // Sequence timelines
+    const reset = () => {
+      // Clear elements
+      if (laser) laser.classList.remove('active');
+      if (progressBar) progressBar.style.width = '0%';
+      if (statusText) statusText.textContent = 'System Ready';
+      if (acCard) acCard.classList.remove('sync-success');
+
+      // Reset raw field highlights
+      Object.values(rawFields).forEach(field => {
+        if (field) field.classList.remove('scanning-active');
+      });
+
+      // Reset AutoCount input text and filled classes
+      Object.values(acFields).forEach(field => {
+        if (field) {
+          field.textContent = '-';
+          field.classList.remove('filled');
+        }
+      });
+
+      // Reset Sync block
+      if (syncStatusDot) syncStatusDot.className = 'sync-dot';
+      if (syncStatusText) syncStatusText.textContent = 'Waiting for input';
+    };
+
+    const startCycle = () => {
+      reset();
+
+      // Step 1: Laser Scan begins (0.5s)
+      setTimeout(() => {
+        if (laser) laser.classList.add('active');
+        if (statusText) statusText.textContent = 'Scanning elements...';
+      }, 500);
+
+      // Step 2: Highlight OCR sections sequentially (1.0s - 2.6s)
+      setTimeout(() => { if(rawFields.vendor) rawFields.vendor.classList.add('scanning-active'); }, 1000);
+      setTimeout(() => { if(rawFields.invNo) rawFields.invNo.classList.add('scanning-active'); }, 1400);
+      setTimeout(() => { if(rawFields.date) rawFields.date.classList.add('scanning-active'); }, 1800);
+      setTimeout(() => {
+        if(rawFields.item1) rawFields.item1.classList.add('scanning-active');
+        if(rawFields.item2) rawFields.item2.classList.add('scanning-active');
+      }, 2200);
+      setTimeout(() => { if(rawFields.total) rawFields.total.classList.add('scanning-active'); }, 2600);
+
+      // Step 3: AI Assistant Processing (3.5s)
+      setTimeout(() => {
+        if (laser) laser.classList.remove('active');
+        if (statusText) statusText.textContent = 'AI Assistant parsing fields...';
+        if (progressBar) progressBar.style.width = '100%';
+        if (syncStatusDot) syncStatusDot.className = 'sync-dot processing';
+        if (syncStatusText) syncStatusText.textContent = 'Parsing invoice...';
+      }, 3500);
+
+      // Step 4: Populate AutoCount fields one by one (5.2s - 6.7s)
+      setTimeout(() => {
+        if (statusText) statusText.textContent = 'Syncing data to AutoCount...';
+        if (syncStatusText) syncStatusText.textContent = 'Writing to database...';
+
+        if(acFields.vendor) {
+          acFields.vendor.textContent = 'SYNERGY HOLDINGS SDN BHD';
+          acFields.vendor.classList.add('filled');
+        }
+      }, 5200);
+
+      setTimeout(() => {
+        if(acFields.invNo) {
+          acFields.invNo.textContent = 'INV-2026-8891';
+          acFields.invNo.classList.add('filled');
+        }
+      }, 5700);
+
+      setTimeout(() => {
+        if(acFields.date) {
+          acFields.date.textContent = '25/06/2026';
+          acFields.date.classList.add('filled');
+        }
+      }, 6200);
+
+      setTimeout(() => {
+        if(acFields.total) {
+          acFields.total.textContent = 'RM 12,250.00';
+          acFields.total.classList.add('filled');
+        }
+      }, 6700);
+
+      // Step 5: Complete Database Sync Success (7.5s)
+      setTimeout(() => {
+        if (statusText) statusText.textContent = 'Data Entry Completed!';
+        if (acCard) acCard.classList.add('sync-success');
+        if (syncStatusDot) syncStatusDot.className = 'sync-dot success';
+        if (syncStatusText) syncStatusText.textContent = '✓ AutoCount Updated';
+      }, 7500);
+    };
+
+    // Run the animation loop
+    startCycle();
+    setInterval(startCycle, 12000); // repeats every 12s (8s animation + 4s pause)
+  };
+
+  // Run the live simulation preview if components exist on page
+  if (document.querySelector('.live-simulation')) {
+    runLiveSimulation();
+  }
+
 });

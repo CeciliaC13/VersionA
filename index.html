@@ -24,6 +24,7 @@
 
       <nav class="nav-links" id="navLinks">
         <a href="#home" class="active">Home</a>
+        <a href="#live-simulation">Live Demo</a>
         <a href="#crud-capabilities">Core Features</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#contact">Contact</a>
@@ -61,7 +62,7 @@
 
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary btn-arrow">Inquire for Implementation</a>
-          <a href="#crud-capabilities" class="btn btn-outline">Explore Capabilities</a>
+          <a href="#live-simulation" class="btn btn-outline">Watch Live Demo</a>
         </div>
 
         <div class="hero-stats">
@@ -107,7 +108,119 @@
     </div>
   </section>
 
+  <!-- =============================================================
+       AI ASSISTANT SIMULATION (WATCH IT WORK)
+       ============================================================= -->
+  <section class="live-simulation" id="live-simulation">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Interactive Preview</span>
+        <h2 class="section-title">See the AI Assistant in Action</h2>
+        <p class="section-subtitle">
+          Witness how the MacSoft AI Assistant automatically captures invoice details, maps records, and synchronizes them directly into AutoCount—entirely hands-free.
+        </p>
+      </div>
 
+      <div class="magic-display reveal">
+        <div class="magic-grid">
+          <!-- Left: Scanned Document Mockup -->
+          <div class="magic-card invoice-mock">
+            <div class="card-header">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+              <span class="card-title">INVOICE_DOCUMENT.PNG</span>
+            </div>
+            <div class="invoice-content">
+              <div class="invoice-meta">
+                <div class="inv-field" id="raw-vendor"><strong>Vendor:</strong> <span>SYNERGY HOLDINGS SDN BHD</span></div>
+                <div class="inv-field" id="raw-inv-no"><strong>Inv No:</strong> <span>INV-2026-8891</span></div>
+                <div class="inv-field" id="raw-date"><strong>Date:</strong> <span>25/06/2026</span></div>
+              </div>
+              <table class="invoice-table">
+                <thead>
+                  <tr>
+                    <th>Item Description</th>
+                    <th>Qty</th>
+                    <th>Total (RM)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="raw-item-1">
+                    <td>Industrial Rack Tier A</td>
+                    <td>10</td>
+                    <td>8,500.00</td>
+                  </tr>
+                  <tr id="raw-item-2">
+                    <td>Heavy Duty Pallet</td>
+                    <td>50</td>
+                    <td>3,750.00</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="invoice-total" id="raw-total">
+                <strong>Total Amount:</strong> <span>RM 12,250.00</span>
+              </div>
+              <!-- Laser scanner line effect -->
+              <div class="scanner-laser"></div>
+            </div>
+          </div>
+
+          <!-- Center: MacSoft AI Assistant Processing -->
+          <div class="magic-processor">
+            <div class="engine-orb">
+              <div class="orb-core">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <div class="orb-pulse"></div>
+            </div>
+            <div class="engine-status">
+              <span class="status-badge">MACSOFT AI ASSISTANT</span>
+              <p class="status-text" id="engine-status-text">Idle</p>
+              <div class="progress-bar">
+                <div class="progress-fill" id="engine-progress"></div>
+              </div>
+            </div>
+            <div class="connector-arrows">
+              <div class="arrow-dot"></div>
+            </div>
+          </div>
+
+          <!-- Right: AutoCount Mockup -->
+          <div class="magic-card autocount-mock">
+            <div class="card-header">
+              <span class="badge-autocount">AutoCount Database</span>
+              <span class="db-status" id="ac-db-status"><span class="pulse-green"></span>Connected</span>
+            </div>
+            <div class="autocount-content">
+              <div class="autocount-field">
+                <label>Creditor Name</label>
+                <div class="autocount-input" id="ac-vendor">-</div>
+              </div>
+              <div class="autocount-field">
+                <label>Invoice Reference</label>
+                <div class="autocount-input" id="ac-inv-no">-</div>
+              </div>
+              <div class="autocount-field">
+                <label>Posting Date</label>
+                <div class="autocount-input" id="ac-date">-</div>
+              </div>
+              <div class="autocount-field">
+                <label>Total Amount (RM)</label>
+                <div class="autocount-input" id="ac-total">-</div>
+              </div>
+              <div class="sync-status" id="ac-sync-status">
+                <div class="sync-dot"></div>
+                <span>Idle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- =============================================================
        CRUD CAPABILITIES SECTION
