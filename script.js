@@ -1,5 +1,5 @@
 /* ===================================================================
-   MACSOFT AI AGENT — LANDING PAGE SCRIPTS
+   MACSOFT AI ASSISTANT — LANDING PAGE SCRIPTS
    =================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -115,12 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const eased = 1 - (1 - progress) * (1 - progress);
         const current = Math.floor(eased * target);
 
-        counter.textContent = prefix + current + suffix;
+        counter.innerHTML = prefix + current + suffix;
 
         if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
-          counter.textContent = prefix + target + suffix;
+          counter.innerHTML = prefix + target + suffix;
         }
       };
 
@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = btn.textContent;
 
       // Simulate submission
-      btn.textContent = 'Sending...';
+      btn.textContent = 'Submitting...';
       btn.disabled = true;
       btn.style.opacity = '0.7';
 
       setTimeout(() => {
-        btn.textContent = '✓ Message Sent!';
-        btn.style.background = '#22c55e';
+        btn.textContent = '✓ Inquiry Submitted!';
+        btn.style.background = '#10b981';
         btn.style.opacity = '1';
         form.reset();
 
@@ -173,6 +173,30 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener noreferrer');
+  });
+
+  // --- FAQ Accordion Toggles ---
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionButton = item.querySelector('.faq-question');
+    if (questionButton) {
+      questionButton.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+        
+        // Close all other items (accordion behavior)
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          const otherIcon = otherItem.querySelector('.faq-icon');
+          if (otherIcon) otherIcon.textContent = '+';
+        });
+
+        if (!isOpen) {
+          item.classList.add('active');
+          const icon = item.querySelector('.faq-icon');
+          if (icon) icon.textContent = '−';
+        }
+      });
+    }
   });
 
 });
