@@ -225,7 +225,7 @@
   <!-- =============================================================
        CRUD CAPABILITIES SECTION
        ============================================================= -->
-  <section class="features" id="crud-capabilities">
+  <section class="features dark-section" id="crud-capabilities">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag">Total Control</span>
@@ -326,72 +326,67 @@
   </section>
 
   <!-- =============================================================
-       FAQ SECTION
+       CHALLENGES & SOLUTIONS SECTION
        ============================================================= -->
-  <section class="faq" id="faq">
+  <section class="challenges-solutions" id="challenges">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Common Inquiries</span>
-        <h2 class="section-title">Frequently Asked Questions</h2>
+        <span class="section-tag">Old Way vs. New Way</span>
+        <h2 class="section-title">Manual Struggles vs. MacSoft Automation</h2>
         <p class="section-subtitle">
-          Everything you need to know about integrating the MacSoft AI Assistant with your AutoCount workflows.
+          How local Malaysian SMEs are fixing their operational bottlenecks and data entry problems with the MacSoft AI Assistant.
         </p>
       </div>
 
-      <div class="faq-accordion reveal">
-        <!-- Item 1 -->
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Which versions of AutoCount are supported?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>The MacSoft AI Assistant is fully compatible with AutoCount Accounting v1.8, v2.0, and v2.1. We support both local local server deployments and cloud-hosted database setups.</p>
-          </div>
+      <div class="comparison-grid reveal">
+        <!-- Old Manual Way -->
+        <div class="comparison-card old-way">
+          <div class="card-header-icon">❌</div>
+          <h3>The Manual Accounting Way</h3>
+          <p class="card-subtitle-text">Repetitive and prone to human errors.</p>
+          <ul class="comparison-list">
+            <li>
+              <strong>Hours of Invoice Keying:</strong>
+              <p>Staff spend half their workday manually typing details from suppliers' invoices into AutoCount.</p>
+            </li>
+            <li>
+              <strong>Month-End Closing Stress:</strong>
+              <p>Unmatched invoices, typos, and misplaced decimal points take days to find and reconcile.</p>
+            </li>
+            <li>
+              <strong>Inventory Updates Lagging:</strong>
+              <p>Delayed invoice posting means stock levels are inaccurate, causing delivery issues.</p>
+            </li>
+            <li>
+              <strong>Underutilized Staff Talent:</strong>
+              <p>Accounting teams are bogged down with paper filing and data entry, leaving no time for strategic support.</p>
+            </li>
+          </ul>
         </div>
 
-        <!-- Item 2 -->
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How accurate is the invoice screenshot parsing?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Our extraction engine achieves an accuracy rate exceeding 99% for digital invoices and clear receipts. The AI automatically cross-references and matches totals, invoice dates, and line items, alerting your team if discrepancies are found.</p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How does the assistant securely connect to AutoCount?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>The assistant connects via encrypted local tunnels. It only runs read, write, and delete requests on official API endpoints to ensure system integrity. Every transaction is recorded inside a local audit log for complete accountability.</p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Can we review parsed data before writing to the database?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. The assistant supports a "Human-in-the-Loop" workflow. Parsed invoice details are presented in a simple grid queue, and your team can review, edit, or approve the entries before they are posted to AutoCount.</p>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How long does the implementation take?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Standard setup takes between 3 to 5 business days. Our Johor-based team maps the database tables, defines transaction rules, and assists with staff onboarding to ensure a smooth transition with zero operational downtime.</p>
-          </div>
+        <!-- The MacSoft Way -->
+        <div class="comparison-card new-way">
+          <div class="card-header-icon">⚡</div>
+          <h3>The MacSoft Assistant Way</h3>
+          <p class="card-subtitle-text">Fast, accurate, and completely hands-free.</p>
+          <ul class="comparison-list">
+            <li>
+              <strong>Screenshot Data Extraction:</strong>
+              <p>Just snap a picture of any invoice. The AI Assistant reads, processes, and writes the fields in seconds.</p>
+            </li>
+            <li>
+              <strong>100% Validated Audit Trail:</strong>
+              <p>Calculations and tax details are verified by the AI, ensuring balanced journals before posting.</p>
+            </li>
+            <li>
+              <strong>Real-Time Stock Adjustment:</strong>
+              <p>Inventory, debtors, and creditor ledgers update in AutoCount instantly on invoice receipt.</p>
+            </li>
+            <li>
+              <strong>High-Value Business Growth:</strong>
+              <p>Your team is freed to focus on cash flow management, vendor relationships, and productivity.</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

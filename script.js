@@ -175,29 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.setAttribute('rel', 'noopener noreferrer');
   });
 
-  // --- FAQ Accordion Toggles ---
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const questionButton = item.querySelector('.faq-question');
-    if (questionButton) {
-      questionButton.addEventListener('click', () => {
-        const isOpen = item.classList.contains('active');
-        
-        // Close all other items (accordion behavior)
-        faqItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-          const otherIcon = otherItem.querySelector('.faq-icon');
-          if (otherIcon) otherIcon.textContent = '+';
-        });
 
-        if (!isOpen) {
-          item.classList.add('active');
-          const icon = item.querySelector('.faq-icon');
-          if (icon) icon.textContent = '−';
-        }
-      });
-    }
-  });
 
   // ===================================================================
   // --- AI ASSISTANT SIMULATION INTERACTIVE PREVIEW LOOP ---
